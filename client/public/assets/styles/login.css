@@ -1,0 +1,281 @@
+:root {
+  --htmlFontSize: 100%;
+  --bodyBackgroundColor: var(--baseDarkColor);
+  --bodyColor: var(--baseColor);
+  --bodyFontFamily: "Open Sans";
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: 0.875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
+  --anchorColor: var(--accentColorLighter);
+  --formGap: 0.875rem;
+
+  /* Login color pallete */
+  --loginBorderRadus: 0.5rem;
+  --loginColor: var(--baseColor);
+  --loginInputBackgroundColor: var(--baseDarkColorLight);
+  --loginInputHoverBackgroundColor: var(--baseDarkColorLightest);
+  --loginLabelBackgroundColor: var(--baseDarkColorLighter);
+  --loginSubmitBackgroundColor: var(--accentColor);
+  --loginSubmitColor: var(--baseColor);
+  --loginSubmitHoverBackgroundColor: var(--accentColorLight);
+}
+
+body {
+  background-color: var(--bodyBackgroundColor);
+  color: var(--bodyColor);
+  font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+  font-size: var(--bodyFontSize);
+  font-weight: var(--bodyFontWeight);
+  line-height: var(--bodyLineHeight);
+}
+
+.container {
+  inline-size: 90%;
+  margin-inline: auto;
+  margin-top: 6rem;
+  max-inline-size: 20rem;
+}
+
+.text--center a {
+  color: var(--anchorColor);
+  outline: 0;
+  text-decoration: none;
+}
+
+.text--center a:focus,
+.text--center a:hover {
+  text-decoration: underline;
+}
+
+.form__field input {
+  background-image: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  transition: background-color 0.3s;
+}
+
+.form__field input[type="submit"] {
+  cursor: pointer;
+}
+
+.form {
+  display: grid;
+  gap: var(--formGap);
+}
+
+.form input[type="password"],
+.form input[type="text"],
+.form input[type="submit"] {
+  inline-size: 100%;
+}
+
+.form__field {
+  display: flex;
+}
+
+.form__input {
+  flex: 1;
+}
+
+.login {
+  color: var(--loginColor);
+}
+
+.login label,
+.login input[type="text"],
+.login input[type="password"],
+.login input[type="submit"] {
+  border-radius: var(--loginBorderRadus);
+  padding: 1rem;
+}
+
+.login label {
+  background-color: var(--loginLabelBackgroundColor);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding-inline: 1.25rem;
+}
+
+.login input[type="password"],
+.login input[type="text"] {
+  background-color: var(--loginInputBackgroundColor);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.login input[type="password"]::placeholder,
+.login input[type="text"]::placeholder {
+  color: var(--loginColor);
+}
+
+.login input[type="password"]:focus,
+.login input[type="password"]:hover,
+.login input[type="text"]:focus,
+.login input[type="text"]:hover {
+  background-color: var(--loginInputHoverBackgroundColor);
+}
+
+.login input[type="submit"] {
+  background-color: var(--loginSubmitBackgroundColor);
+  color: var(--loginSubmitColor);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.login input[type="submit"]:focus,
+.login input[type="submit"]:hover {
+  background-color: var(--loginSubmitHoverBackgroundColor);
+}
+
+p.text--center {
+  margin-block: 1.5rem;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.eye {
+  margin-top: 1.25rem;
+  margin-left: 18rem;
+  position: absolute;
+}
+
+.flex img {
+  max-width: 100%;
+  width: 50rem;
+  height: auto;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  padding: 30px 90px 20px 90px;
+  color: var(--baseColor);
+  background-color: var(--baseDarkColor);
+  border-top: 1px solid var(--accentColor);
+}
+
+.footer > * {
+  flex: 1 100%;
+}
+
+.footer__addr {
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+}
+
+.footer__logo {
+  font-family: "Lilita One", cursive;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+  margin-top: 1.3em;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+  color: var(--baseDarkColorLightest);
+}
+
+.footer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  max-width: max-content;
+  background-color: var(--accentColor);
+  border-radius: 50px;
+  color: var(--baseColor);
+  line-height: 0;
+  margin: 0.6em 0;
+  font-size: 1rem;
+  padding: 0 1.3em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.footer__nav > * {
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+
+.nav__ul a {
+  color: var(--baseDarkColorLighter);
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--baseDarkColorLightest);
+}
+
+.legal__links {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  color: var(--accentColor);
+}
+
+.nav__ul i {
+  color: var(--baseColor);
+}
+
+@media screen and (min-width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav > * {
+    flex: 1;
+  }
+
+  .footer__addr {
+    flex: 1 0px;
+  }
+
+  .footer__nav {
+    flex: 2 0px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .eye {
+    margin-left: 15rem;
+  }
+}

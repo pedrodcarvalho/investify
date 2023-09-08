@@ -1,0 +1,46 @@
+/* Global CSS styles */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&display=swap');
+
+:root {
+  /* Primary colors */
+  --baseColor: #eaecee;
+  --baseDarkColor: #2c3338;
+  --baseDarkColorLight: #4a5156;
+  --baseDarkColorLighter: #6a7176;
+  --baseDarkColorLightest: #8a9196;
+
+  /* Secondary colors */
+  --accentColor: #31c38c;
+  --accentColorLight: #53d4a3;
+  --accentColorLighter: #a3e49f;
+  --accentColorLightest: #d4f0c3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open-Sans", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.expand {
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+}
