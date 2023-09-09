@@ -1,7 +1,8 @@
 const getLoginPage = async (req, res) => {
     try {
         res.status(200).sendFile('index.html', { root: '../client/public' });
-    } catch (err) {
+    }
+    catch (err) {
         res.status(500).json({ err: err.message });
     }
 };

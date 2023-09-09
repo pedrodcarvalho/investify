@@ -1,11 +1,10 @@
 exports.verifyLogin = (req, res, next) => {
     try {
-        return next();
-        // if (req.isAuthenticated()) {
-        //     return next();
+        // if (req.session.user) {
+        //     return res.status(200).render('home', { username: req.session.user.username });
         // }
 
-        // res.redirect('/login');
+        return next();
     } catch (err) {
         res.status(500).json({ err: err.message });
     }

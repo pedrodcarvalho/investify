@@ -1,52 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investify</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/styles/style.css" />
-    <link rel="stylesheet" href="./assets/styles/login.css" />
-    <link rel="stylesheet" href="./assets/styles/toast.css" />
-    <script src="../utils/eye.js" defer></script>
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/login.css">
+    <link rel="stylesheet" href="./assets/styles/toast.css">
+    <script src="./utils/eye.js" defer></script>
     <script src="../utils/toast.js" defer></script>
     <script src="https://kit.fontawesome.com/21ac4c37bd.js" crossorigin="anonymous" defer></script>
   </head>
   <body>
     <div class="flex column expand">
-      <img class="logo" src="./assets/images/logo-no-background.png" alt="Investify logo" />
+      <img class="logo" src="./assets/images/logo-no-background.png" alt="Investify logo">
       <div class="container">
-        <form action="/register" method="POST" class="form login">
+        <form action="/login" method="POST" class="form login">
           <div class="form__field">
             <label for="login__username">
               <i class="fa-solid fa-user"></i>
             </label>
-            <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" value="<%= username %>" maxlength="16" required />
-          </div>
-          <div class="form__field">
-            <label for="login__email">
-              <i class="fa-solid fa-envelope"></i>
-            </label>
-            <input id="login__email" type="text" name="email" class="form__input" placeholder="E-mail" value="<%= email %>" required />
+            <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" maxlength="16" required>
           </div>
           <div class="form__field">
             <label for="login__password">
               <i class="fa-solid fa-lock"></i>
             </label>
-            <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" maxlength="16" required />
+            <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" maxlength="16" required>
             <i class="fa-solid fa-eye eye"></i>
           </div>
           <div class="form__field">
-            <input type="submit" value="Register" />
+            <input type="submit" value="Sign In">
           </div>
         </form>
-        <p class="text--center"><a href="/">Sign in</a> <i class="fa-solid fa-arrow-right"></i></p>
+        <p class="text--center">Don't have an account yet? <a href="/register">Register now!</a> <i class="fa-solid fa-arrow-right"></i></p>
       </div>
       <footer class="footer">
         <div class="footer__addr">
           <h1 class="footer__logo">Investify</h1>
           <address>
-            Campinas, São Paulo (Brazil)<br />
+            Campinas, São Paulo (Brazil)<br>
             <a class="footer__btn" href="mailto:pedrodc51203@gmail.com">Email Us</a>
           </address>
         </div>
@@ -89,9 +83,9 @@
           </li>
         </ul>
         <div class="legal">
-          <p>&copy; 2023 Investify. All rights reserved.</p>
+          <p>&copy; 2023 <b>Investify</b>. All rights reserved.</p>
           <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> from Investify Group</span>
+            <span>Made with <span class="heart">♥</span> from <b>Investify Group</b></span>
           </div>
         </div>
       </footer>

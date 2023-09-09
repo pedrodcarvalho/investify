@@ -22,7 +22,7 @@ const loginUser = async (req, res) => {
             res.status(200).redirect('/home');
         }
         else {
-            res.status(400).redirect('/');
+            res.status(400).render('index', { message: 'Invalid username or password' });
         }
     }
     catch (err) {
