@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedrodcarvalho/to-do-app.git"
+    "url": "git+https://github.com/pedrodcarvalho/investify.git"
   },
   "keywords": [
     "To-Do",
@@ -17,11 +17,12 @@
   "author": "Pedro D. de Carvalho",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pedrodcarvalho/to-do-app/issues"
+    "url": "https://github.com/pedrodcarvalho/investify/issues"
   },
-  "homepage": "https://github.com/pedrodcarvalho/to-do-app#readme",
+  "homepage": "https://github.com/pedrodcarvalho/investify#readme",
   "dependencies": {
     "dotenv": "^16.1.4",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongodb": "^5.6.0",
