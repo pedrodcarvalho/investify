@@ -11,7 +11,7 @@
   --formGap: 0.875rem;
 
   /* Login color pallete */
-  --loginBorderRadus: 0.5rem;
+  --loginBorderRadius: 0.5rem;
   --loginColor: var(--baseColor);
   --loginInputBackgroundColor: var(--baseDarkColorLight);
   --loginInputHoverBackgroundColor: var(--baseDarkColorLightest);
@@ -90,7 +90,7 @@ body {
 .login input[type="text"],
 .login input[type="password"],
 .login input[type="submit"] {
-  border-radius: var(--loginBorderRadus);
+  border-radius: var(--loginBorderRadius);
   padding: 1rem;
 }
 
@@ -141,6 +141,7 @@ p.text--center {
 }
 
 .eye {
+  cursor: pointer;
   margin-top: 1.25rem;
   margin-left: 18rem;
   position: absolute;
@@ -156,10 +157,11 @@ p.text--center {
   display: flex;
   width: 100%;
   flex-flow: row wrap;
-  padding: 30px 90px 20px 90px;
+  padding: 30px 90px 30px 90px;
   color: var(--baseColor);
   background-color: var(--baseDarkColor);
-  border-top: 1px solid var(--accentColor);
+  border-top: 1px solid;
+  border-image: linear-gradient(90deg, var(--accentColor), var(--accentColorLighter)) 1;
 }
 
 .footer > * {
@@ -252,6 +254,10 @@ p.text--center {
 
 .nav__ul i {
   color: var(--baseColor);
+}
+
+.logo {
+  padding-top: 30px;
 }
 
 @media screen and (min-width: 24.375em) {

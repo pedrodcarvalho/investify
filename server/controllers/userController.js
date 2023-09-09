@@ -17,10 +17,12 @@ const loginUser = async (req, res) => {
         const user = await User.findOne({ username: req.body.username, password: req.body.password });
 
         if (user) {
-            res.status(200).json({ message: 'Login successful' });
+            req.session.user = user;
+
+            res.status(200).redirect('/home');
         }
         else {
-            res.status(400).json({ message: 'Invalid username or password' });
+            res.status(400).redirect('/');
         }
     }
     catch (err) {
@@ -30,18 +32,25 @@ const loginUser = async (req, res) => {
 
 const registerUser = async (req, res) => {
     try {
-        req.body = sanitizeInput(req.body);
-        validateInput(res, req.body);
+        req.body = await sanitizeInput(req.body);
+        const registration = await validateInput(req.body);
 
-        const newUser = new User({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-        });
+        if (registration.isValid) {
+            const newUser = new User({
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+            });
 
-        await newUser.save();
+            await newUser.save();
 
-        res.status(200).json({ message: 'Registration successful' });
+            req.session.user = newUser;
+
+            res.status(200).redirect('/home');
+        }
+        else {
+            res.status(400).render('register', { message: registration.message, username: req.body.username, email: req.body.email });
+        }
     }
     catch (err) {
         res.status(500).json({ err: err.message });

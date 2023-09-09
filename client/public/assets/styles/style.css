@@ -1,6 +1,5 @@
 /* Global CSS styles */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&display=swap");
 
 :root {
   /* Primary colors */
@@ -15,6 +14,7 @@
   --accentColorLight: #53d4a3;
   --accentColorLighter: #a3e49f;
   --accentColorLightest: #d4f0c3;
+  --accentColorInverse: #cc3e33;
 }
 
 * {
@@ -27,6 +27,7 @@ body {
   font-family: "Open-Sans", sans-serif;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .flex {

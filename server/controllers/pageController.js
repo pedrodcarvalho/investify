@@ -1,4 +1,4 @@
-const getHomePage = async (req, res) => {
+const getLoginPage = async (req, res) => {
     try {
         res.status(200).sendFile('index.html', { root: '../client/public' });
     } catch (err) {
@@ -15,7 +15,16 @@ const getRegisterPage = async (req, res) => {
     }
 };
 
+const getHomePage = async (req, res) => {
+    try {
+        res.status(200).render('home', { username: req.session.user.username });
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
-    getHomePage,
+    getLoginPage,
     getRegisterPage,
+    getHomePage,
 };
