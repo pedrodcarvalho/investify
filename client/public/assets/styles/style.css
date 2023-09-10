@@ -1,9 +1,12 @@
 /* Global CSS styles */
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&family=Poppins&display=swap");
 
 :root {
   /* Primary colors */
   --baseColor: #eaecee;
+  --baseColorLight: #f4f5f7;
+  --baseColorLighter: #f8f9fa;
+  --baseColorLightest: #fafbfc;
   --baseDarkColor: #2c3338;
   --baseDarkColorLight: #4a5156;
   --baseDarkColorLighter: #6a7176;
@@ -37,11 +40,25 @@ body {
 }
 
 .column {
+  display: flex;
   flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
 .expand {
   width: 100vw;
   height: 100vh;
   justify-content: space-between;
+}
+
+.max-height {
+  height: 100vh;
+}
+
+.component-spacing div {
+  margin: 1rem 0 0 2rem;
 }
