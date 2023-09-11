@@ -251,3 +251,69 @@ INNER_SUB_MENUS_BTN.forEach((element) => {
         slideToggle(element.nextElementSibling);
     });
 });
+
+const getColorTheme = (baseColor, baseDarkColor, colorTheme) => {
+    fetch('/theme', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.theme === 'light') {
+                colorTheme.textContent = 'Light';
+                document.querySelector(':root').style.setProperty('--baseColor', `${baseDarkColor}`);
+                document.querySelector(':root').style.setProperty('--baseDarkColor', `${baseColor}`);
+            }
+            else {
+                colorTheme.textContent = 'Dark';
+                document.querySelector(':root').style.setProperty('--baseColor', `${baseColor}`);
+                document.querySelector(':root').style.setProperty('--baseDarkColor', `${baseDarkColor}`);
+            }
+        })
+        .catch(err => console.log(err));
+};
+
+const updateColorTheme = (baseColor, baseDarkColor, colorTheme) => {
+    document.querySelector('#color-theme').addEventListener('click', (e) => {
+        if (e.target.textContent === 'Dark') {
+            e.target.textContent = 'Light';
+            document.querySelector(':root').style.setProperty('--baseColor', `${baseDarkColor}`);
+            document.querySelector(':root').style.setProperty('--baseDarkColor', `${baseColor}`);
+        }
+        else {
+            e.target.textContent = 'Dark';
+            document.querySelector(':root').style.setProperty('--baseColor', `${baseColor}`);
+            document.querySelector(':root').style.setProperty('--baseDarkColor', `${baseDarkColor}`);
+        }
+
+        fetch('/theme', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                theme: (e.target.textContent).toLowerCase()
+            })
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+    });
+};
+
+
+const colorTheme = () => {
+    const rootStyles = getComputedStyle(document.documentElement);
+
+    const baseColor = rootStyles.getPropertyValue('--baseColor');
+    const baseDarkColor = rootStyles.getPropertyValue('--baseDarkColor');
+    const colorTheme = document.querySelector('#color-theme span');
+
+    getColorTheme(baseColor, baseDarkColor, colorTheme);
+    updateColorTheme(baseColor, baseDarkColor, colorTheme);
+};
+
+colorTheme();
