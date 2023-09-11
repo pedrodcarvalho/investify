@@ -17,7 +17,6 @@ const validateInputLengths = (body) => {
         return { isValid: false, message: 'Sorry, your username must be between 6 and 16 characters long.' };
     }
     else if (body.password.length < 8 || body.password.length > 16) {
-        console.log('password length');
         return { isValid: false, message: 'Sorry, your password must be between 8 and 16 characters long.' };
     }
 };

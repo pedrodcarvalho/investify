@@ -20,6 +20,9 @@ app.use(session({
     saveUninitialized: false,
 }));
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 app.use(express.static('../client/public', { index: false }));
 app.use(express.static('../client/src', { index: false }));
 

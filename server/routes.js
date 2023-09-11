@@ -9,6 +9,8 @@ const pageController = require('./controllers/pageController');
 
 const userController = require('./controllers/userController');
 
+const userSettingsController = require('./controllers/userSettingsController');
+
 router.use(database.connect);
 router.use(loginVerification.verifyLogin);
 
@@ -19,5 +21,8 @@ router.get('/home', pageController.getHomePage);
 
 router.post('/login', userController.loginUser);
 router.post('/register', userController.registerUser);
+
+router.get('/theme', userSettingsController.getUserTheme);
+router.put('/theme', userSettingsController.updateUserTheme);
 
 module.exports = router;
