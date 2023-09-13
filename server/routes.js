@@ -18,6 +18,7 @@ router.get('/', pageController.getLoginPage);
 router.get('/users', userController.getAllUsers);
 router.get('/register', pageController.getRegisterPage);
 router.get('/home', pageController.getHomePage);
+router.get('/logout', userController.logOutUser);
 
 router.post('/login', userController.loginUser);
 router.post('/register', userController.registerUser);

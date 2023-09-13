@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./assets/styles/home.css" />
     <link rel="stylesheet" href="./assets/styles/sidebar.css" />
     <link rel="stylesheet" href="./assets/styles/layout.css" />
+    <link rel="stylesheet" href="./assets/styles/footer.css" />
     <script src="https://unpkg.com/@popperjs/core@2" defer></script>
     <script src="../utils/sidebar.js" defer></script>
     <script src="https://kit.fontawesome.com/21ac4c37bd.js" crossorigin="anonymous" defer></script>
@@ -120,23 +121,23 @@
                   </a>
                 </li>
                 <li class="menu-item sub-menu">
-                    <a href="#">
-                      <span class="menu-icon">
-                        <i class="fa-solid fa-paint-roller"></i>
-                      </span>
-                      <span class="menu-title">Theme</span>
-                    </a>
-                    <div class="sub-menu-list">
-                      <ul id="color-theme">
-                        <li class="menu-item">
-                          <a href="#">
-                            <span class="menu-title">Dark</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                <li class="menu-item">
+                  <a href="#">
+                    <span class="menu-icon">
+                      <i class="fa-solid fa-paint-roller"></i>
+                    </span>
+                    <span class="menu-title">Theme</span>
+                  </a>
+                  <div class="sub-menu-list">
+                    <ul id="color-theme">
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-title">Dark</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item" id="sign-out">
                   <a href="#">
                     <span class="menu-icon">
                       <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -153,18 +154,73 @@
       <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
         <i class="fa-solid fa-bars fa-lg" style="color: var(--baseColor)"></i>
       </a>
-      <div class="row component-spacing">
-        <div class="column">
+      <div class="column expand">
+        <div class="flex column component-spacing">
           <h1>Welcome to Investify</h1>
           <h1>Welcome to Investify</h1>
           <h1>Welcome to Investify</h1>
         </div>
-        <div>
+        <div class="flex column component-spacing">
           <h1>Test</h1>
           <h1>Test</h1>
           <h1>Test</h1>
         </div>
       </div>
+    </div>
+    <div>
+      <footer class="footer">
+        <div class="footer__addr">
+          <h1 class="footer__logo">Investify</h1>
+          <address>
+            Campinas, São Paulo (Brazil)<br>
+            <a class="footer__btn" href="mailto:pedrodc51203@gmail.com">Email Us</a>
+          </address>
+        </div>
+        <ul class="footer__nav">
+          <li class="nav__item">
+            <h2 class="nav__title">Contact</h2>
+            <ul class="nav__ul">
+              <li>
+                <a>+55 (19) 99741-0220</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/pedro-carvalho-a92bab210/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://github.com/pedrodcarvalho"><i class="fa-brands fa-github"></i> GitHub</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <h2 class="nav__title">About</h2>
+            <ul class="nav__ul">
+              <li>
+                <a href="#">Who we are</a>
+              </li>
+              <li>
+                <a href="#">Our purpose</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <h2 class="nav__title">Legal</h2>
+            <ul class="nav__ul">
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="legal">
+          <p>&copy; 2023 <b>Investify</b>. All rights reserved.</p>
+          <div class="legal__links">
+            <span>Made with <span class="heart">♥</span> from <b>Investify Group</b></span>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

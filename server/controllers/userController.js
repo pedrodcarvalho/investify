@@ -57,8 +57,19 @@ const registerUser = async (req, res) => {
     }
 };
 
+const logOutUser = (req, res) => {
+    try {
+        req.session.destroy();
+        req.end();
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getAllUsers,
     loginUser,
     registerUser,
+    logOutUser,
 };
