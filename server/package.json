@@ -1,9 +1,10 @@
 {
-  "name": "to-do-app",
+  "name": "investify",
   "version": "1.0.0",
-  "description": "To-Do App for Resume",
+  "description": "Investment simulation web app",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,8 +12,8 @@
     "url": "git+https://github.com/pedrodcarvalho/investify.git"
   },
   "keywords": [
-    "To-Do",
-    "Resume"
+    "Investment",
+    "Simulation"
   ],
   "author": "Pedro D. de Carvalho",
   "license": "MIT",
