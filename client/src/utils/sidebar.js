@@ -317,22 +317,3 @@ const colorTheme = () => {
 };
 
 colorTheme();
-
-const logOutUser = () => {
-    document.querySelector('#sign-out').addEventListener('click', (e) => {
-        fetch('/logout', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                window.location.href = '/';
-            })
-            .catch(err => console.log(err));
-    });
-};
-
-logOutUser();

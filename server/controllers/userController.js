@@ -60,7 +60,7 @@ const registerUser = async (req, res) => {
 const logOutUser = (req, res) => {
     try {
         req.session.destroy();
-        req.end();
+        res.redirect('/');
     }
     catch (err) {
         res.status(500).json({ err: err.message });

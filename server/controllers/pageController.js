@@ -24,8 +24,17 @@ const getHomePage = async (req, res) => {
     }
 };
 
+const getSettingsPage = async (req, res) => {
+    try {
+        res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email });
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getLoginPage,
     getRegisterPage,
     getHomePage,
+    getSettingsPage,
 };
