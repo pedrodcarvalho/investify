@@ -10,7 +10,6 @@
   --anchorColor: var(--accentColorLighter);
   --formGap: 0.875rem;
 
-  /* Login color pallete */
   --loginBorderRadius: 0.5rem;
   --loginColor: var(--baseColor);
   --loginInputBackgroundColor: var(--baseDarkColorLight);

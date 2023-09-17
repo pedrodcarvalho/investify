@@ -176,18 +176,12 @@ const slideToggle = (target, duration = ANIMATION_DURATION) => {
 
 const PoppersInstance = new Poppers();
 
-/**
- * wait for the current animation to finish and update poppers position
- */
 const updatePoppersTimeout = () => {
     setTimeout(() => {
         PoppersInstance.updatePoppers();
     }, ANIMATION_DURATION);
 };
 
-/**
- * sidebar collapse handler
- */
 document.getElementById("btn-collapse").addEventListener("click", () => {
     SIDEBAR_EL.classList.toggle("collapsed");
     PoppersInstance.closePoppers();
@@ -199,18 +193,12 @@ document.getElementById("btn-collapse").addEventListener("click", () => {
     updatePoppersTimeout();
 });
 
-/**
- * sidebar toggle handler (on break point )
- */
 document.getElementById("btn-toggle").addEventListener("click", () => {
     SIDEBAR_EL.classList.toggle("toggled");
 
     updatePoppersTimeout();
 });
 
-/**
- * toggle sidebar on overlay click
- */
 document.getElementById("overlay").addEventListener("click", () => {
     SIDEBAR_EL.classList.toggle("toggled");
 });
@@ -221,9 +209,6 @@ defaultOpenMenus.forEach((element) => {
     element.lastElementChild.style.display = "block";
 });
 
-/**
- * handle top level submenu click
- */
 FIRST_SUB_MENUS_BTN.forEach((element) => {
     element.addEventListener("click", () => {
         if (SIDEBAR_EL.classList.contains("collapsed"))
@@ -243,9 +228,6 @@ FIRST_SUB_MENUS_BTN.forEach((element) => {
     });
 });
 
-/**
- * handle inner submenu click
- */
 INNER_SUB_MENUS_BTN.forEach((element) => {
     element.addEventListener("click", () => {
         slideToggle(element.nextElementSibling);
@@ -261,7 +243,6 @@ const getColorTheme = (baseColor, baseDarkColor, colorTheme) => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             if (data.theme === 'light') {
                 colorTheme.textContent = 'Light';
                 document.querySelector(':root').style.setProperty('--baseColor', `${baseDarkColor}`);
@@ -299,7 +280,6 @@ const updateColorTheme = (baseColor, baseDarkColor, colorTheme) => {
             })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
             .catch(err => console.log(err));
     });
 };

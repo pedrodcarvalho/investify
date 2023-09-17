@@ -1,91 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investify</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/styles/style.css" />
-    <link rel="stylesheet" href="./assets/styles/login.css" />
-    <script src="./utils/eye.js" defer></script>
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/login.css">
+    <script src="./assets/scripts/index.js" type="module" defer></script>
     <script src="https://kit.fontawesome.com/21ac4c37bd.js" crossorigin="anonymous" defer></script>
   </head>
   <body>
-    <div class="flex column expand">
-      <img class="logo" src="./assets/images/logo-no-background.png" alt="Investify logo" />
-      <div class="container">
-        <form action="/login" method="POST" class="form login">
-          <div class="form__field">
-            <label for="login__username">
-              <i class="fa-solid fa-user"></i>
-            </label>
-            <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" maxlength="16" required />
-          </div>
-          <div class="form__field">
-            <label for="login__password">
-              <i class="fa-solid fa-lock"></i>
-            </label>
-            <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" maxlength="16" required />
-            <i class="fa-solid fa-eye eye"></i>
-          </div>
-          <div class="form__field">
-            <input type="submit" value="Sign In" />
-          </div>
-        </form>
-        <p class="text--center">Don't have an account yet? <a href="/register">Register now!</a> <i class="fa-solid fa-arrow-right"></i></p>
-      </div>
-      <footer class="footer">
-        <div class="footer__addr">
-          <h1 class="footer__logo">Investify</h1>
-          <address>
-            Campinas, São Paulo (Brazil)<br>
-            <a class="footer__btn" href="mailto:pedrodc51203@gmail.com">Email Us</a>
-          </address>
-        </div>
-        <ul class="footer__nav">
-          <li class="nav__item">
-            <h2 class="nav__title">Contact</h2>
-            <ul class="nav__ul">
-              <li>
-                <a>+55 (19) 99741-0220</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/pedro-carvalho-a92bab210/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-              </li>
-              <li>
-                <a href="https://github.com/pedrodcarvalho"><i class="fa-brands fa-github"></i> GitHub</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav__item">
-            <h2 class="nav__title">About</h2>
-            <ul class="nav__ul">
-              <li>
-                <a href="#">Who we are</a>
-              </li>
-              <li>
-                <a href="#">Our purpose</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav__item">
-            <h2 class="nav__title">Legal</h2>
-            <ul class="nav__ul">
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div class="legal">
-          <p>&copy; 2023 <b>Investify</b>. All rights reserved.</p>
-          <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> from <b>Investify Group</b></span>
-          </div>
-        </div>
-      </footer>
+    <div class="flex column expand expand-between">
+      <img class="logo" src="./assets/images/logo-no-background.png" alt="Investify logo">
+      <div class="container" id="login-form-component"></div>
+      <footer class="footer" id="footer-component"></footer>
+    </div>
   </body>
 </html>

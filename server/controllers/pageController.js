@@ -19,7 +19,8 @@ const getRegisterPage = async (req, res) => {
 const getHomePage = async (req, res) => {
     try {
         res.status(200).render('home', { username: req.session.user.username });
-    } catch (err) {
+    }
+    catch (err) {
         res.status(500).json({ err: err.message });
     }
 };
@@ -27,7 +28,8 @@ const getHomePage = async (req, res) => {
 const getSettingsPage = async (req, res) => {
     try {
         res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email });
-    } catch (err) {
+    }
+    catch (err) {
         res.status(500).json({ err: err.message });
     }
 };

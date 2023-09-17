@@ -38,7 +38,7 @@ const validateEmail = (body) => {
 };
 
 const validatePassword = (body) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!]).*$/;
 
     if (!passwordRegex.test(body.password)) {
         return { isValid: false, message: 'Password must contain at least one uppercase letter, one lowercase letter, and one number' };
@@ -73,7 +73,7 @@ const validateInput = async (body) => {
             return passwordValidation;
         }
 
-        return { isValid: true, message: ''};
+        return { isValid: true, message: '' };
     }
 };
 

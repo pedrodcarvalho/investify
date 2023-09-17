@@ -1,17 +1,6 @@
 const User = require('../models/user');
 const { sanitizeInput, validateInput } = require('../helpers/registerHelpers');
 
-const getAllUsers = async (req, res) => {
-    try {
-        const users = await User.find();
-
-        res.status(200).json(users);
-    }
-    catch (err) {
-        res.status(500).json({ err: err.message });
-    }
-};
-
 const loginUser = async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username, password: req.body.password });
@@ -49,7 +38,7 @@ const registerUser = async (req, res) => {
             res.status(200).redirect('/home');
         }
         else {
-            res.status(400).render('register', { message: registration.message, username: req.body.username, email: req.body.email });
+            res.status(400).render('register', { message: registration.message });
         }
     }
     catch (err) {
@@ -68,7 +57,6 @@ const logOutUser = (req, res) => {
 };
 
 module.exports = {
-    getAllUsers,
     loginUser,
     registerUser,
     logOutUser,

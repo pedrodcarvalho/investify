@@ -19,5 +19,5 @@ const updateUserTheme = async (req, res) => {
 
 module.exports = {
     getUserTheme,
-    updateUserTheme
+    updateUserTheme,
 };

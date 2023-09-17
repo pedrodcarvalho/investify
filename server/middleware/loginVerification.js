@@ -5,7 +5,8 @@ exports.verifyLogin = (req, res, next) => {
         // }
 
         return next();
-    } catch (err) {
+    }
+    catch (err) {
         res.status(500).json({ err: err.message });
     }
 };

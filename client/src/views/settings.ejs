@@ -1,159 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investify</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/styles/style.css" />
-    <link rel="stylesheet" href="./assets/styles/home.css" />
-    <link rel="stylesheet" href="./assets/styles/sidebar.css" />
-    <link rel="stylesheet" href="./assets/styles/layout.css" />
-    <link rel="stylesheet" href="./assets/styles/footer.css" />
-    <script src="https://unpkg.com/@popperjs/core@2" defer></script>
-    <script src="../utils/sidebar.js" defer></script>
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/home.css">
+    <link rel="stylesheet" href="./assets/styles/layout.css">
+    <link rel="stylesheet" href="./assets/styles/sidebar.css">
+    <link rel="stylesheet" href="./assets/styles/footer.css">
+    <script src="./assets/scripts/home.js" type="module" defer></script>
     <script src="https://kit.fontawesome.com/21ac4c37bd.js" crossorigin="anonymous" defer></script>
   </head>
   <body>
     <div class="layout has-sidebar fixed-sidebar fixed-header">
-      <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
-        <a id="btn-collapse" class="sidebar-collapser"><i class="fa-solid fa-chevron-left fa-xs"></i></a>
-        <div class="sidebar-layout">
-          <div class="sidebar-header">
-            <div class="investify-sidebar-logo">
-              <img src="./assets/images/favicon.png" alt="Investify Logo" />
-              <h5><%= username %></h5>
-            </div>
-          </div>
-          <div class="sidebar-content">
-            <nav class="menu open-current-submenu">
-              <ul>
-                <li class="menu-header"><span> GENERAL </span></li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-wallet"></i>
-                    </span>
-                    <span class="menu-title">Wallet</span>
-                    <span class="menu-suffix">
-                      <span class="badge primary">New</span>
-                    </span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">All</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Stocks</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Cryptocurrencies</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-chart-line"></i>
-                    </span>
-                    <span class="menu-title">Simulation</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Quote</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Buy</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Sell</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-dollar-sign"></i>
-                    </span>
-                    <span class="menu-title">Others</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Technical Indicators</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Foreign Exchange</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-header" style="padding-top: 20px"><span> EXTRA </span></li>
-                <li class="menu-item">
-                  <a href="/settings">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-gear"></i>
-                    </span>
-                    <span class="menu-title">Settings</span>
-                    <span class="menu-suffix">
-                      <span class="badge secondary">Soon</span>
-                    </span>
-                  </a>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-paint-roller"></i>
-                    </span>
-                    <span class="menu-title">Theme</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul id="color-theme">
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Dark</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item" id="sign-out">
-                  <a href="/logout">
-                    <span class="menu-icon">
-                      <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    </span>
-                    <span class="menu-title">Sign Out</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </aside>
-      <div id="overlay" class="overlay"></div>
-      <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
-        <i class="fa-solid fa-bars fa-lg" style="color: var(--baseColor)"></i>
-      </a>
+      <div id="sidebar-component"></div>
       <div class="column expand">
         <div class="flex column component-spacing">
           <h1>Settings</h1>
@@ -162,59 +24,7 @@
       </div>
     </div>
     <div>
-      <footer class="footer">
-        <div class="footer__addr">
-          <h1 class="footer__logo">Investify</h1>
-          <address>
-            Campinas, São Paulo (Brazil)<br />
-            <a class="footer__btn" href="mailto:pedrodc51203@gmail.com">Email Us</a>
-          </address>
-        </div>
-        <ul class="footer__nav">
-          <li class="nav__item">
-            <h2 class="nav__title">Contact</h2>
-            <ul class="nav__ul">
-              <li>
-                <a>+55 (19) 99741-0220</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/pedro-carvalho-a92bab210/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-              </li>
-              <li>
-                <a href="https://github.com/pedrodcarvalho"><i class="fa-brands fa-github"></i> GitHub</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav__item">
-            <h2 class="nav__title">About</h2>
-            <ul class="nav__ul">
-              <li>
-                <a href="#">Who we are</a>
-              </li>
-              <li>
-                <a href="#">Our purpose</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav__item">
-            <h2 class="nav__title">Legal</h2>
-            <ul class="nav__ul">
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div class="legal">
-          <p>&copy; 2023 <b>Investify</b>. All rights reserved.</p>
-          <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> from <b>Investify Group</b></span>
-          </div>
-        </div>
-      </footer>
+      <footer class="footer" id="footer-component"></footer>
     </div>
   </body>
 </html>
