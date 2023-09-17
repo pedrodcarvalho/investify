@@ -1,0 +1,25 @@
+<form action="/register" method="POST" class="form login">
+  <div class="form__field">
+    <label for="login__username">
+      <i class="fa-solid fa-user"></i>
+    </label>
+    <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" maxlength="16" required />
+  </div>
+  <div class="form__field">
+    <label for="login__email">
+      <i class="fa-solid fa-envelope"></i>
+    </label>
+    <input id="login__email" type="text" name="email" class="form__input" placeholder="E-mail" required />
+  </div>
+  <div class="form__field">
+    <label for="login__password">
+      <i class="fa-solid fa-lock"></i>
+    </label>
+    <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" maxlength="16" required />
+    <i class="fa-solid fa-eye eye"></i>
+  </div>
+  <div class="form__field">
+    <input type="submit" value="Register" />
+  </div>
+</form>
+<p class="text--center"><a href="/">Sign in</a> <i class="fa-solid fa-arrow-right"></i></p>
