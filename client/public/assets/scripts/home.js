@@ -1,4 +1,4 @@
 import { loadSidebar, loadFooter } from '../../../utils/loadComponents.js';
 
-loadSidebar();
-loadFooter();
+await loadSidebar();
+await loadFooter();

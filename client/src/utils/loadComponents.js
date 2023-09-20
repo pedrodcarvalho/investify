@@ -1,4 +1,4 @@
-const passwordEye = () => {
+const passwordEye = async () => {
     const eye = document.querySelector('.eye')
 
     eye.addEventListener('click', () => {
@@ -17,10 +17,10 @@ const passwordEye = () => {
     });
 };
 
-const loadLoginForm = () => {
+const loadLoginForm = async () => {
     const loginForm = document.querySelector('#login-form-component');
 
-    fetch('../components/LoginForm.html')
+    await fetch('../components/LoginForm.html')
         .then(response => response.text())
         .then(data => {
             loginForm.innerHTML = data;
@@ -29,10 +29,10 @@ const loadLoginForm = () => {
         });
 };
 
-const loadRegisterForm = () => {
+const loadRegisterForm = async () => {
     const registerForm = document.querySelector('#register-form-component');
 
-    fetch('../components/RegisterForm.html')
+    await fetch('../components/RegisterForm.html')
         .then(response => response.text())
         .then(data => {
             registerForm.innerHTML = data;
@@ -41,20 +41,20 @@ const loadRegisterForm = () => {
         });
 };
 
-const loadFooter = () => {
+const loadFooter = async () => {
     const footer = document.querySelector('#footer-component');
 
-    fetch('../components/Footer.html')
+    await fetch('../components/Footer.html')
         .then(response => response.text())
         .then(data => {
             footer.innerHTML = data;
         });
 };
 
-const loadSidebar = () => {
+const loadSidebar = async () => {
     const sidebar = document.querySelector('#sidebar-component');
 
-    fetch('/sidebar')
+    await fetch('/sidebar')
         .then(response => response.text())
         .then(data => {
             sidebar.innerHTML = data;

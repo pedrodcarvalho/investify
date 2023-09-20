@@ -1,4 +1,4 @@
 import { loadLoginForm, loadFooter } from '../../../utils/loadComponents.js';
 
-loadLoginForm();
-loadFooter();
+await loadLoginForm();
+await loadFooter();
