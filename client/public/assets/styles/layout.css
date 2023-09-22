@@ -225,9 +225,9 @@
     display: initial;
   }
 }
-.layout.fixed-sidebar {
+/* .layout.fixed-sidebar {
   height: 100%;
-}
+} */
 .layout.fixed-sidebar .sidebar {
   height: 100%;
   overflow: auto;

@@ -1,0 +1,48 @@
+:root {
+  --mdc-theme-primary: var(--baseColor) !important;
+  --mdc-theme-secondary: var(--accentColor) !important;
+  --mdc-theme-background: var(--baseDarkColor) !important;
+  --mdc-theme-surface: var(--baseDarkColor) !important;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--accentColor) !important;
+}
+.mdc-text-field {
+  width: 75vw;
+  max-width: 350px;
+}
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+  border-color: var(--accentColor) !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.mdc-text-field__icon {
+  color: var(--baseColor) !important;
+  background-color: var(--accentColor) !important;
+  padding: 16px;
+  margin-right: -15px;
+}
+
+.mdc-card {
+  color: var(--baseDarkColor);
+  background-color: var(--baseColor);
+  padding: 16px;
+  border-radius: 0px;
+}
+.mdc-card a {
+  color: var(--baseDarkColor);
+}
+div.mdc-card {
+  width: 75vw;
+  max-width: 350px;
+  border-bottom: 1px solid var(--baseDarkColorLightest);
+}
+.mdc-card h1 {
+  font-size: 1.5rem;
+}
+.mdc_card p {
+  color: var(--baseDarkColorLighter);
+}

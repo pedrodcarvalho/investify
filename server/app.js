@@ -12,7 +12,7 @@ app.use(express.static('../client/src', { index: false }));
 app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
-app.set('views', '../client/src/views');
+app.set('views', ['../client/src/views', 'components']);
 
 const session = require('express-session');
 app.use(session({

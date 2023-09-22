@@ -34,9 +34,19 @@ const getSettingsPage = async (req, res) => {
     }
 };
 
+const getQuotePage = async (req, res) => {
+    try {
+        res.status(200).render('quote', { username: req.session.user.username });
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getLoginPage,
     getRegisterPage,
     getHomePage,
     getSettingsPage,
+    getQuotePage,
 };

@@ -82,6 +82,10 @@ body {
   width: 100vw;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .expand-between {
   height: 100vh;
   justify-content: space-between;

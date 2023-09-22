@@ -1,0 +1,14 @@
+<% quotes.map((quote, index) => { %>
+<div class="mdc-card">
+  <a href="/quoted/<%= quote.symbol %>">
+    <div class="mdc-card__primary-action" tabindex="0">
+      <h1><%= quote.symbol %></h1>
+      <div class="mdc-card__ripple"></div>
+    </div>
+  </a>
+  <div class="flex row space-between">
+    <p><%= quote.longname %></p>
+    <b><p><%= quote.quoteType %></p></b>
+  </div>
+</div>
+<% }) %>
