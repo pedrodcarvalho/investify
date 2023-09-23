@@ -28,5 +28,7 @@ router.get('/theme', userSettingsController.getUserTheme);
 router.put('/theme', userSettingsController.updateUserTheme);
 
 router.get('/quote/:ticker', quoteController.getQuoteCards);
+router.get('/quoted', quoteController.quotedTicker);
+router.get('/quoted/chart', quoteController.quotedChart);
 
 module.exports = router;
