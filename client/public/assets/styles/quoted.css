@@ -1,0 +1,41 @@
+table.stock-infos {
+  width: 20em;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+.stock-infos td {
+  padding: 0.25rem;
+  border-bottom: 1px solid var(--accentColorLight);
+  text-align: right;
+}
+.stock-infos th {
+  border-right: 10px solid var(--baseDarkColor);
+  text-align: left;
+}
+.stock-infos th {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--baseDarkColorLightest);
+}
+.stock-infos tr:last-child td {
+  border-bottom: none;
+}
+.stock-infos tr:last-child th {
+  border-bottom: none;
+}
+
+.container-border {
+  border: 1px solid var(--baseDarkColorLighter);
+  border-radius: 4px;
+  margin: 15px;
+}
+
+div.margin-right *:not(h4) {
+  margin-right: 5rem;
+}
+div.margin-right h4:first-child {
+  margin-right: 0.25rem;
+}
+
+h1 {
+  font-size: 2rem;
+}

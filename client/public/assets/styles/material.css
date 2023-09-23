@@ -46,3 +46,10 @@ div.mdc-card {
 .mdc_card p {
   color: var(--baseDarkColorLighter);
 }
+
+.mdc-radio__native-control:enabled:not(:checked) ~ .mdc-radio__background .mdc-radio__outer-circle {
+  border-color: var(--baseDarkColorLighter) !important;
+}
+.mdc-form-field label {
+  color: var(--baseColor);
+}

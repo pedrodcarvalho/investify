@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investify</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/home.css">
+    <link rel="stylesheet" href="./assets/styles/sidebar.css">
+    <link rel="stylesheet" href="./assets/styles/layout.css">
+    <link rel="stylesheet" href="./assets/styles/footer.css">
+    <link rel="stylesheet" href="./assets/styles/material.css">
+    <link rel="stylesheet" href="./assets/styles/quoted.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/21ac4c37bd.js" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="./assets/scripts/quoted.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+      <div id="sidebar-component"></div>
+      <div class="column expand container-border space-around">
+        <div class="flex row div-spacing">
+          <div class="div-spacing margin-right">
+            <h1><%= data.symbol %></h1>
+            <p><%= data.type %></p>
+          </div>
+          <div class="div-spacing">
+            <h2><%= data.marketPrice %> <%= data.currency %>$</h2>
+            <div class="flex row margin-right">
+              <h4 style="color: <%= data.variationColor %>;"><%= data.variation %></h4>
+              <h4 style="color: <%= data.variationColor %>;">(<%= data.variationPercent %>%)</h4>
+            </div>
+          </div>
+        </div>
+        <div class="flex column half-height">
+          <div id="ranges"></div>
+          <canvas id="quote-chart"></canvas>
+        </div>
+        <div class="flex row div-spacing">
+          <table class="stock-infos">
+            <tr>
+              <th>Previous Close</th>
+              <td><%= data.previousClose %> <%= data.currency %>$</td>
+            </tr>
+            <tr>
+              <th>Open</th>
+              <td><%= data.open %> <%= data.currency %>$</td>
+            </tr>
+            <tr>
+              <th>Volume</th>
+              <td><%= data.volume %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <footer class="footer" id="footer-component"></footer>
+    </div>
+  </body>
+</html>

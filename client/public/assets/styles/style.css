@@ -86,6 +86,10 @@ body {
   justify-content: space-between;
 }
 
+.space-around {
+  justify-content: space-around;
+}
+
 .expand-between {
   height: 100vh;
   justify-content: space-between;
@@ -93,6 +97,10 @@ body {
 
 .max-height {
   height: 100vh;
+}
+
+.half-height {
+  height: 50vh;
 }
 
 div.div-spacing {
