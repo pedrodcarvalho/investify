@@ -17,7 +17,7 @@ const quoteTicker = async () => {
         try {
             if (ticker === '' || /\s+/.test(ticker)) return quoteResult.innerHTML = '';
 
-            fetch(`/quote/${ticker}`).then((res) => res.text()).then((data) => {
+            fetch(`/quote/${ticker}?type=quoteCards`).then((res) => res.text()).then((data) => {
                 quoteResult.innerHTML = data;
                 searchQuoteBtn.href = quoteResult.children[0].children[0].href;
             });

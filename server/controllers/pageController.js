@@ -43,10 +43,20 @@ const getQuotePage = async (req, res) => {
     }
 };
 
+const getOperationPage = async (req, res) => {
+    try {
+        res.status(200).render('operation', { username: req.session.user.username });
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getLoginPage,
     getRegisterPage,
     getHomePage,
     getSettingsPage,
     getQuotePage,
+    getOperationPage,
 };

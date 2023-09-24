@@ -15,6 +15,7 @@
   --accentColorLighter: #a3e49f;
   --accentColorLightest: #d4f0c3;
   --accentColorInverse: #cc3e33;
+  --accentColorInverseLight: #e66a5a;
 }
 
 ::-webkit-scrollbar {

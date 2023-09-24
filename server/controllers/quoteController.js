@@ -16,6 +16,7 @@ const sanitizeQuoteName = (quote) => {
 const getQuoteCards = async (req, res) => {
     try {
         const ticker = req.params.ticker;
+        const cardType = req.query.type;
 
         axios.get(`https://query1.finance.yahoo.com/v1/finance/search?q=${ticker}`)
             .then((response) => {
@@ -26,7 +27,7 @@ const getQuoteCards = async (req, res) => {
                     sanitizeQuoteName(quote);
                 });
 
-                res.status(200).render('quoteCards', { quotes: quotes });
+                res.status(200).render(`${cardType}`, { quotes: quotes });
             })
             .catch((err) => {
                 res.status(500).json(err.message);

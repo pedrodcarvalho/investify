@@ -8,6 +8,7 @@ const componentsController = require('./controllers/componentsController');
 const userController = require('./controllers/userController');
 const userSettingsController = require('./controllers/userSettingsController');
 const quoteController = require('./controllers/quoteController');
+const operationController = require('./controllers/operationController');
 
 router.use(database.connect);
 router.use(loginVerification.verifyLogin);
@@ -17,6 +18,7 @@ router.get('/register', pageController.getRegisterPage);
 router.get('/home', pageController.getHomePage);
 router.get('/settings', pageController.getSettingsPage);
 router.get('/quote', pageController.getQuotePage);
+router.get('/operation', pageController.getOperationPage);
 
 router.get('/sidebar', componentsController.getSidebar);
 
@@ -30,5 +32,8 @@ router.put('/theme', userSettingsController.updateUserTheme);
 router.get('/quote/:ticker', quoteController.getQuoteCards);
 router.get('/quoted', quoteController.quotedTicker);
 router.get('/quoted/chart', quoteController.quotedChart);
+
+router.get('/operation/buy', operationController.buyOperation);
+router.get('/operation/sell', operationController.sellOperation);
 
 module.exports = router;

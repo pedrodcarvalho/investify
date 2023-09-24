@@ -53,3 +53,14 @@ div.mdc-card {
 .mdc-form-field label {
   color: var(--baseColor);
 }
+
+.mdc-button {
+  padding: 0;
+  width: 5rem;
+}
+.mdc-button:hover.green-button {
+  background-color: var(--accentColorLight) !important;
+}
+.mdc-button:hover.red-button {
+  background-color: var(--accentColorInverseLight) !important;
+}

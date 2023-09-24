@@ -1,0 +1,50 @@
+.buy-button {
+  background-color: var(--accentColor) !important;
+}
+.sell-button {
+  background-color: var(--accentColorInverse) !important;
+}
+
+.add-share,
+.remove-share {
+  border: 1px solid var(--baseDarkColorLighter);
+  padding: 4px 8px 4px 8px;
+  font-weight: 700;
+}
+.add-share {
+  border-radius: 4px 0 0 4px;
+}
+.remove-share {
+  border-radius: 0 4px 4px 0;
+}
+.add-share:hover,
+.remove-share:hover {
+  cursor: pointer;
+  background-color: var(--baseColorLighter);
+}
+.stock-shares {
+  border: 1px solid var(--baseDarkColorLighter);
+  border-left: none;
+  border-right: none;
+  padding: 4px 8px 4px 8px;
+  font-weight: 700;
+}
+.add-share::selection,
+.remove-share::selection,
+.stock-shares::selection {
+  background-color: transparent;
+}
+
+.margin-bottom * {
+  margin-bottom: 4px;
+}
+
+.operation {
+  opacity: 0;
+}
+#quote-result:not(:hover) > :first-child .operation {
+  opacity: 1;
+}
+.hidden:hover .operation {
+  opacity: 1;
+}

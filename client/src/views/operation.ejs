@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investify</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/home.css">
+    <link rel="stylesheet" href="./assets/styles/sidebar.css">
+    <link rel="stylesheet" href="./assets/styles/layout.css">
+    <link rel="stylesheet" href="./assets/styles/footer.css">
+    <link rel="stylesheet" href="./assets/styles/operation.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./assets/styles/material.css">
+    <script src="https://kit.fontawesome.com/21ac4c37bd.js" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js" defer></script>
+    <script src="./assets/scripts/operation.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+      <div id="sidebar-component"></div>
+      <div class="column expand">
+        <div class="flex column div-spacing">
+          <label class="mdc-text-field mdc-text-field--outlined">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span class="mdc-floating-label mdc-theme--primary" id="ticker">Stock Ticker</span>
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input mdc-theme--primary" id="quote-ticker" aria-labelledby="ticker">
+          </label>
+          <div id="quote-result"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <footer class="footer" id="footer-component"></footer>
+    </div>
+  </body>
+</html>
