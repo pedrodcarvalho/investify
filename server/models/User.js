@@ -4,8 +4,12 @@ const userSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String,
-    settings: {
-        theme: String
+    wallet: {
+        balance: Number,
+        shares: [{
+            ticker: String,
+            shares: Number,
+        }],
     },
 });
 

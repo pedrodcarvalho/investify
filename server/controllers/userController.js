@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/User');
 const { sanitizeInput, validateInput } = require('../helpers/registerHelpers');
 
 const loginUser = async (req, res) => {
