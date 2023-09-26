@@ -1,8 +1,10 @@
-const axios = require("axios");
+const axios = require('axios');
 
 const User = require('../models/User');
 
-const addSharesToWallet = async (username, ticker, shares, operationType) => {
+const { convertToUSD } = require('../helpers/currencyConverter');
+
+const addSharesToWallet = async (username, ticker, shares, operationType, operationPrice) => {
     const user = await User.findOne({ username: username });
 
     if (user) {
@@ -33,7 +35,7 @@ const addSharesToWallet = async (username, ticker, shares, operationType) => {
                 throw new Error('You don\'t have any shares to sell');
             }
             else {
-                if (Number(user.wallet.balance) < Number(shares)) {
+                if (Number(user.wallet.balance) < Number(operationPrice)) {
                     throw new Error('You don\'t have enough balance to buy');
                 }
 
@@ -65,12 +67,19 @@ const operationTemplate = async (req, res, operationType) => {
         const ticker = req.query.ticker;
         const shares = req.query.shares;
 
-        const marketPrice = await axios.get(`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}`)
-            .then((response) => response.data.chart.result[0].meta.regularMarketPrice);
+        const data = await axios.get(`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}`)
+            .then((response) => response.data);
+
+        let marketPrice = data.chart.result[0].meta.regularMarketPrice;
+        const operationCurrency = data.chart.result[0].meta.currency;
+
+        if (operationCurrency !== 'USD') {
+            marketPrice = await convertToUSD(operationCurrency, marketPrice);
+        }
 
         const operationPrice = marketPrice * shares;
 
-        await addSharesToWallet(req.session.user.username, ticker, shares, operationType)
+        await addSharesToWallet(req.session.user.username, ticker, shares, operationType, operationPrice)
             .then(async () => {
                 await updateBalance(req.session.user.username, operationPrice, operationType);
 
