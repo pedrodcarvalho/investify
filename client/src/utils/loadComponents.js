@@ -73,4 +73,22 @@ const loadSidebar = async () => {
         });
 };
 
-export { loadLoginForm, loadRegisterForm, loadFooter, loadSidebar };
+const loadToastMessage = async () => {
+    const toastMessage = document.querySelector('#toast-component');
+
+    if (!toastMessage) return;
+
+    await fetch('/toast-message')
+        .then(response => response.text())
+        .then(data => {
+            toastMessage.innerHTML = data;
+        })
+        .then(() => {
+            const toastScript = document.createElement('script');
+            toastScript.src = '../utils/toast.js';
+            toastScript.type = 'module';
+            document.head.appendChild(toastScript);
+        });
+};
+
+export { loadLoginForm, loadRegisterForm, loadFooter, loadSidebar, loadToastMessage };

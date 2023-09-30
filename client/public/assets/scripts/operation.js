@@ -1,4 +1,5 @@
 import { loadSidebar, loadFooter } from '../../../utils/loadComponents.js';
+import { toastMessage } from '../../../utils/toast.js';
 
 await loadSidebar();
 await loadFooter();
@@ -29,15 +30,59 @@ const operationTicker = async () => {
                 (new Array(...operationCards)).forEach((card, index) => {
                     buyBtns[index].addEventListener('click', async () => {
                         await fetch(`/operation/buy?ticker=${buyBtns[index].dataset.ticker}&shares=${shares[index].innerHTML}`)
-                            .then((res) => res.text()).then((data) => {
-                                console.log(data);
+                            .then((res) => res.json()).then((data) => {
+                                const toastTitle = document.querySelector('.text-1');
+                                const toastText = document.querySelector('.text-2');
+
+                                if (data.message) {
+                                    toastTitle.innerHTML = `${buyBtns[index].dataset.ticker} (${shares[index].innerHTML}x) | ${data.operationPrice} USD$`;
+                                    toastText.innerHTML = data.message;
+                                }
+                                else {
+                                    const toastSuccess = document.querySelector('.success');
+                                    toastSuccess.classList.remove('success');
+                                    toastSuccess.classList.add('error');
+                                    toastSuccess.classList.remove('fa-check');
+                                    toastSuccess.classList.add('fa-exclamation');
+
+                                    const toastProgress = document.querySelector('.progress');
+                                    toastProgress.classList.remove('green');
+                                    toastProgress.classList.add('red');
+
+                                    toastTitle.innerHTML = '';
+                                    toastText.innerHTML = data.err;
+                                }
+
+                                toastMessage();
                             });
                     });
 
                     sellBtns[index].addEventListener('click', async () => {
                         await fetch(`/operation/sell?ticker=${buyBtns[index].dataset.ticker}&shares=${shares[index].innerHTML}`)
-                            .then((res) => res.text()).then((data) => {
-                                console.log(data);
+                            .then((res) => res.json()).then((data) => {
+                                const toastTitle = document.querySelector('.text-1');
+                                const toastText = document.querySelector('.text-2');
+
+                                if (data.message) {
+                                    toastTitle.innerHTML = `${buyBtns[index].dataset.ticker} (${shares[index].innerHTML}x) | ${data.operationPrice} USD$`;
+                                    toastText.innerHTML = data.message;
+                                }
+                                else {
+                                    const toastSuccess = document.querySelector('.success');
+                                    toastSuccess.classList.remove('success');
+                                    toastSuccess.classList.add('error');
+                                    toastSuccess.classList.remove('fa-check');
+                                    toastSuccess.classList.add('fa-exclamation');
+
+                                    const toastProgress = document.querySelector('.progress');
+                                    toastProgress.classList.remove('green');
+                                    toastProgress.classList.add('red');
+
+                                    toastTitle.innerHTML = '';
+                                    toastText.innerHTML = data.err;
+                                }
+
+                                toastMessage();
                             });
                     });
 

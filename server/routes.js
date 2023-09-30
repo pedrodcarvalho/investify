@@ -21,6 +21,7 @@ router.get('/quote', pageController.getQuotePage);
 router.get('/operation', pageController.getOperationPage);
 
 router.get('/sidebar', componentsController.getSidebar);
+router.get('/toast-message', componentsController.getToastMessage);
 
 router.get('/logout', userController.logOutUser);
 router.post('/login', userController.loginUser);

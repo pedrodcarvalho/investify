@@ -1,13 +1,13 @@
-const toast = document.querySelector('.toast');
-const closeIcon = document.querySelector('.close');
-const progress = document.querySelector('.progress');
+const toastMessage = () => {
+    const toast = document.querySelector('.toast');
+    const closeIcon = document.querySelector('.close');
+    const progress = document.querySelector('.progress');
 
-const toastText = document.querySelector('.text-2').textContent;
+    const toastText = document.querySelector('.text-2').textContent;
 
-let timer1, timer2;
+    let timer1, timer2;
 
-if (toastText) {
-    document.addEventListener('DOMContentLoaded', () => {
+    if (toastText) {
         setTimeout(() => {
             toast.classList.add('active');
             progress.classList.add('active');
@@ -20,16 +20,20 @@ if (toastText) {
                 progress.classList.remove('active');
             }, 5300);
         }, 500);
+    }
+
+    closeIcon.addEventListener('click', () => {
+        toast.classList.remove('active');
+
+        setTimeout(() => {
+            progress.classList.remove('active');
+        }, 300);
+
+        clearTimeout(timer1);
+        clearTimeout(timer2);
     });
-}
+};
 
-closeIcon.addEventListener('click', () => {
-    toast.classList.remove('active');
+toastMessage();
 
-    setTimeout(() => {
-        progress.classList.remove('active');
-    }, 300);
-
-    clearTimeout(timer1);
-    clearTimeout(timer2);
-});
+export { toastMessage };

@@ -1,4 +1,5 @@
 .toast {
+  z-index: 2;
   position: absolute;
   top: 25px;
   right: 25px;
@@ -26,6 +27,18 @@
   height: 35px;
   min-width: 35px;
   background-color: var(--accentColorInverse);
+  color: var(--baseColor);
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.toast-content .success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 35px;
+  background-color: var(--accentColor);
   color: var(--baseColor);
   font-size: 20px;
   border-radius: 50%;
@@ -70,7 +83,7 @@
   width: 100%;
 }
 
-.toast .progress:before {
+.toast .progress.red:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -78,6 +91,16 @@
   height: 100%;
   width: 100%;
   background-color: var(--accentColorInverse);
+}
+
+.toast .progress.green:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--accentColor);
 }
 
 .progress.active:before {

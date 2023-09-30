@@ -380,6 +380,10 @@
 
 .sidebar-toggler {
   position: fixed;
-  right: 20px;
+  right: 10px;
   top: 20px;
+  padding: 2.5px 5px 2.5px 5px;
+  border-radius: 4px;
+  background-color: rgba(74, 81, 86, 0.5);
+  backdrop-filter: blur(100px);
 }

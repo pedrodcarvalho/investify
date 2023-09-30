@@ -11,7 +11,10 @@ const loginUser = async (req, res) => {
             res.status(200).redirect('/home');
         }
         else {
-            res.status(400).render('index', { message: 'Invalid username or password' });
+            req.session.toast = { title: 'Error', message: 'Invalid username or password' };
+            res.status(400).render('index', { toast: req.session.toast });
+
+            req.session.toast = null;
         }
     }
     catch (err) {
@@ -38,7 +41,10 @@ const registerUser = async (req, res) => {
             res.status(200).redirect('/home');
         }
         else {
-            res.status(400).render('register', { message: registration.message });
+            req.session.toast = { title: 'Error', message: registration.message };
+            res.status(400).render('register', { toast: req.session.toast });
+
+            req.session.toast = null;
         }
     }
     catch (err) {

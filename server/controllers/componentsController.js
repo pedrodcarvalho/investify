@@ -7,6 +7,18 @@ const getSidebar = async (req, res) => {
     }
 };
 
+const getToastMessage = async (req, res) => {
+    try {
+        res.status(200).render('../components/ToastMessage', { toast: req.session.toast });
+
+        req.session.toast = null;
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getSidebar,
+    getToastMessage,
 };
