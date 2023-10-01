@@ -4,6 +4,23 @@ import { toastMessage } from '../../../utils/toast.js';
 await loadSidebar();
 await loadFooter();
 
+const changeToastType = (type, icon, color) => {
+    const toastType = document.querySelector('.type');
+    const toastProgress = document.querySelector('.progress');
+
+    toastType.classList.remove('success');
+    toastType.classList.remove('error');
+    toastType.classList.add(type);
+
+    toastType.classList.remove('fa-check');
+    toastType.classList.remove('fa-exclamation');
+    toastType.classList.add(icon);
+
+    toastProgress.classList.remove('green');
+    toastProgress.classList.remove('red');
+    toastProgress.classList.add(color);
+};
+
 const operationTicker = async () => {
     const MDCtextField = mdc.textField.MDCTextField;
     new MDCtextField(document.querySelector('.mdc-text-field'));
@@ -33,21 +50,20 @@ const operationTicker = async () => {
                             .then((res) => res.json()).then((data) => {
                                 const toastTitle = document.querySelector('.text-1');
                                 const toastText = document.querySelector('.text-2');
+                                const toastType = document.querySelector('.type');
 
                                 if (data.message) {
+                                    if (toastType.classList.contains('error')) {
+                                        changeToastType('success', 'fa-check', 'green');
+                                    }
+
                                     toastTitle.innerHTML = `${buyBtns[index].dataset.ticker} (${shares[index].innerHTML}x) | ${data.operationPrice} USD$`;
                                     toastText.innerHTML = data.message;
                                 }
                                 else {
-                                    const toastSuccess = document.querySelector('.success');
-                                    toastSuccess.classList.remove('success');
-                                    toastSuccess.classList.add('error');
-                                    toastSuccess.classList.remove('fa-check');
-                                    toastSuccess.classList.add('fa-exclamation');
-
-                                    const toastProgress = document.querySelector('.progress');
-                                    toastProgress.classList.remove('green');
-                                    toastProgress.classList.add('red');
+                                    if (toastType.classList.contains('success')) {
+                                        changeToastType('error', 'fa-exclamation', 'red');
+                                    }
 
                                     toastTitle.innerHTML = '';
                                     toastText.innerHTML = data.err;
@@ -62,21 +78,33 @@ const operationTicker = async () => {
                             .then((res) => res.json()).then((data) => {
                                 const toastTitle = document.querySelector('.text-1');
                                 const toastText = document.querySelector('.text-2');
+                                const toastType = document.querySelector('.type');
+                                const toastProgress = document.querySelector('.progress');
 
                                 if (data.message) {
+                                    if (toastType.classList.contains('error')) {
+                                        toastType.classList.remove('error');
+                                        toastType.classList.add('success');
+                                        toastType.classList.remove('fa-exclamation');
+                                        toastType.classList.add('fa-check');
+
+                                        toastProgress.classList.remove('red');
+                                        toastProgress.classList.add('green');
+                                    }
+
                                     toastTitle.innerHTML = `${buyBtns[index].dataset.ticker} (${shares[index].innerHTML}x) | ${data.operationPrice} USD$`;
                                     toastText.innerHTML = data.message;
                                 }
                                 else {
-                                    const toastSuccess = document.querySelector('.success');
-                                    toastSuccess.classList.remove('success');
-                                    toastSuccess.classList.add('error');
-                                    toastSuccess.classList.remove('fa-check');
-                                    toastSuccess.classList.add('fa-exclamation');
+                                    if (toastType.classList.contains('success')) {
+                                        toastType.classList.remove('success');
+                                        toastType.classList.add('error');
+                                        toastType.classList.remove('fa-check');
+                                        toastType.classList.add('fa-exclamation');
 
-                                    const toastProgress = document.querySelector('.progress');
-                                    toastProgress.classList.remove('green');
-                                    toastProgress.classList.add('red');
+                                        toastProgress.classList.remove('green');
+                                        toastProgress.classList.add('red');
+                                    }
 
                                     toastTitle.innerHTML = '';
                                     toastText.innerHTML = data.err;
