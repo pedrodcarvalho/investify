@@ -1,0 +1,8 @@
+<% for (let i = 0; i < assets.length; i++) { %>
+<tr class="mdc-data-table__row" id="<%= i %>">
+  <td class="mdc-data-table__cell"><a href="/quoted?ticker=<%= assets[i].ticker %>"><%= assets[i].ticker %></a></td>
+  <td class="mdc-data-table__cell mdc-data-table__cell--numeric"><%= assets[i].shares %></td>
+  <td class="mdc-data-table__cell mdc-data-table__cell--numeric">123</td>
+  <td class="mdc-data-table__cell">...</td>
+</tr>
+<% } %>

@@ -52,6 +52,15 @@ const getOperationPage = async (req, res) => {
     }
 };
 
+const getWalletPage = async (req, res) => {
+    try {
+        res.status(200).render('wallet', { username: req.session.user.username });
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getLoginPage,
     getRegisterPage,
@@ -59,4 +68,5 @@ module.exports = {
     getSettingsPage,
     getQuotePage,
     getOperationPage,
+    getWalletPage,
 };
