@@ -5,6 +5,11 @@ await loadFooter();
 
 const assetsArray = await fetch('/wallet/assets').then((res) => res.json()).then((data) => data);
 
+const assetsInfoArray = await Promise.all(Array.from(assetsArray).map(async (asset) => {
+    const assetTicker = asset.split('ticker=')[1].split('\"')[0];
+    return await fetch(`/quoted?ticker=${assetTicker}&rawData=true`).then((res) => res.json()).then((data) => data);
+}));
+
 const initializeMDC = async () => {
     const MDCdataTable = mdc.dataTable.MDCDataTable;
     const dataTable = new MDCdataTable(document.querySelector('.mdc-data-table'));
@@ -40,6 +45,8 @@ const updateTable = (assetsArray, startValue, endValue) => {
     assetsArraySliced.map((asset) => {
         tableBody.innerHTML += asset;
     });
+
+    loadAssetsInfo();
 };
 
 const updatePaginationTotal = (startValue, endValue) => {
@@ -82,6 +89,14 @@ const rowsPerPage = (endValue) => {
 
     updatePaginationTotal(startValue, endValue);
 }
+
+const loadAssetsInfo = () => {
+    Array.from(tableBody.children).map((asset, index) => {
+        const indexValue = index + startValue;
+        asset.querySelector('.type').textContent = assetsInfoArray[indexValue].type;
+        asset.querySelector('.price').textContent = `${assetsInfoArray[indexValue].marketPrice} ${assetsInfoArray[indexValue].currency}$`;
+    });
+};
 
 const updatePaginationButtonsState = () => {
     const firstRowValue = Number(document.querySelectorAll('.mdc-data-table__row')[0].id);
