@@ -54,8 +54,8 @@ const quotedTicker = async (req, res) => {
                     variation: (chart.meta.regularMarketPrice - chart.meta.previousClose).toFixed(2),
                     variationPercent: ((chart.meta.regularMarketPrice - chart.meta.previousClose) / chart.meta.previousClose * 100).toFixed(2),
                     previousClose: chart.meta.previousClose,
-                    open: chart.indicators.quote[0].open[0].toFixed(2),
-                    volume: String(chart.indicators.quote[0].volume.reduce((cur, acc) => acc += cur)),
+                    open: Object.keys(chart.indicators.quote[0]).length !== 0 ? chart.indicators.quote[0].open[0].toFixed(2) : NaN,
+                    volume: Object.keys(chart.indicators.quote[0]).length !== 0 ? String(chart.indicators.quote[0].volume.reduce((cur, acc) => acc += cur)) : NaN,
                 };
 
                 data.variationColor = '#cc3e33';
@@ -66,7 +66,12 @@ const quotedTicker = async (req, res) => {
                     data.variationColor = '#31c38c';
                 }
 
-                res.status(200).render('quotedTicker', { username: req.session.user.username, data: data });
+                if (req.query.rawData === 'true') {
+                    res.status(200).json(data);
+                }
+                else {
+                    res.status(200).render('quotedTicker', { username: req.session.user.username, data: data });
+                }
             })
             .catch((err) => {
                 res.status(500).json(err.message);
@@ -78,6 +83,10 @@ const quotedTicker = async (req, res) => {
 };
 
 const sanitizePrices = async (indicators) => {
+    if (indicators.quote[0].close === undefined) {
+        return [];
+    }
+
     return indicators.quote[0].close.filter((price) => {
         if (price !== null) {
             return price;

@@ -127,6 +127,13 @@ const quoteChart = async () => {
         }
 
         fetch(`/quoted/chart${ticker}&range=${range}&interval=${interval}`).then((res) => res.json()).then(async (chart) => {
+            if (chart.indicators.length === 0) {
+                const rangesBtns = document.getElementById('ranges');
+                rangesBtns.innerHTML = '';
+
+                return;
+            }
+
             const labels = await getLabels(chart.timestamp, range);
             const prices = await getPrices(chart.indicators);
 
