@@ -4,11 +4,37 @@ await loadSidebar();
 await loadFooter();
 
 const assetsArray = await fetch('/wallet/assets').then((res) => res.json()).then((data) => data);
+const walletCategory = document.getElementById('wallet-category').textContent.split(' ')[0];
 
-const assetsInfoArray = await Promise.all(Array.from(assetsArray).map(async (asset) => {
+let assetsInfoArray = await Promise.all(Array.from(assetsArray).map(async (asset, index) => {
     const assetTicker = asset.split('ticker=')[1].split('\"')[0];
-    return await fetch(`/quoted?ticker=${assetTicker}&rawData=true`).then((res) => res.json()).then((data) => data);
+    const assetInfo = await fetch(`/quoted?ticker=${assetTicker}&rawData=true`).then((res) => res.json()).then((data) => data);
+
+    switch (walletCategory) {
+        case 'Cryptocurrencies':
+            if (assetInfo.type === 'CRYPTOCURRENCY') {
+                return assetInfo;
+            }
+            else {
+                assetsArray.splice(index, 1);
+            }
+
+            break;
+        case 'Stocks':
+            if (assetInfo.type !== 'CRYPTOCURRENCY') {
+                return assetInfo;
+            }
+            else {
+                assetsArray.splice(index, 1);
+            }
+
+            break;
+        default:
+            return assetInfo;
+    }
 }));
+
+assetsInfoArray = assetsInfoArray.filter((asset) => asset !== undefined);
 
 const initializeMDC = async () => {
     const MDCdataTable = mdc.dataTable.MDCDataTable;
@@ -50,6 +76,11 @@ const updateTable = (assetsArray, startValue, endValue) => {
 };
 
 const updatePaginationTotal = (startValue, endValue) => {
+    if (assetsArray.length === 0) {
+        paginationTotal.innerHTML = '0-0 of 0';
+        return;
+    }
+
     startValue += 1;
 
     paginationTotal.innerHTML = `${startValue}-${endValue > assetsQuantity ? assetsQuantity : endValue} of ${assetsQuantity}`;
@@ -93,12 +124,22 @@ const rowsPerPage = (endValue) => {
 const loadAssetsInfo = () => {
     Array.from(tableBody.children).map((asset, index) => {
         const indexValue = index + startValue;
+
         asset.querySelector('.type').textContent = assetsInfoArray[indexValue].type;
         asset.querySelector('.price').textContent = `${assetsInfoArray[indexValue].marketPrice} ${assetsInfoArray[indexValue].currency}$`;
     });
 };
 
 const updatePaginationButtonsState = () => {
+    if (assetsArray.length === 0) {
+        paginationButtons[0].setAttribute('disabled', '');
+        paginationButtons[1].setAttribute('disabled', '');
+        paginationButtons[2].setAttribute('disabled', '');
+        paginationButtons[3].setAttribute('disabled', '');
+
+        return;
+    }
+
     const firstRowValue = Number(document.querySelectorAll('.mdc-data-table__row')[0].id);
     const lastRowValue = Number(document.querySelectorAll('.mdc-data-table__row')[document.querySelectorAll('.mdc-data-table__row').length - 1].id);
 

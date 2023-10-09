@@ -10,7 +10,7 @@ const getAssets = async (req, res) => {
                     res.status(500).json({ err: err.message });
                 }
                 else {
-                    const assetsArray = html.split('\n\n').filter((asset) => asset !== '');
+                    const assetsArray = html.split('\n\n').filter((asset) => asset !== '' && asset !== '\n');
                     res.status(200).json(assetsArray);
                 }
             });

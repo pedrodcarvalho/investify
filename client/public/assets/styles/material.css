@@ -94,11 +94,14 @@ div.mdc-card {
   font-size: 0.875rem;
   border-bottom: 1px solid var(--baseDarkColorLightest);
 }
-.mdc-data-table__cell--numeric {
-  text-align: right;
-}
 .align-right {
   text-align: right;
+}
+.align-center {
+  text-align: center;
+}
+th.align-center {
+  padding-right: 4.5rem;
 }
 .mdc-data-table__pagination {
   display: flex;
