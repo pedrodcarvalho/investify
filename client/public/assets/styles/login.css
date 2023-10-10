@@ -284,3 +284,24 @@ p.text--center {
     margin-left: 15rem;
   }
 }
+
+.form__requirements {
+  border: 1px solid var(--accentColorLight);
+  border-style: outset;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  padding: 8px;
+}
+.form__requirements h4 {
+  text-decoration: underline;
+}
+.valid i {
+  color: var(--accentColorLight);
+}
+.valid {
+  text-decoration: line-through;
+  color: var(--baseDarkColorLightest);
+}
+.invalid i {
+  color: var(--accentColorInverseLight);
+}
