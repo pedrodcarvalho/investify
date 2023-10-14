@@ -1,0 +1,35 @@
+<div class="flex column finance-container">
+  <h1><%= title %></h1>
+  <div class="finance-applet">
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Last Price</th>
+          <th>Change</th>
+          <th>Change (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% quotes.forEach(quote => { %>
+        <tr>
+          <td class="column">
+            <a href="/quoted?ticker=<%= quote.symbol %>&rawData=false"><%= quote.symbol %></a>
+            <span><%= quote.shortName %></span>
+          </td>
+          <td><%= quote.regularMarketPrice.fmt %></td>
+          <% if (quote.regularMarketChange.raw > 0) { %>
+          <td class="positive">+<%= quote.regularMarketChange.fmt %></td>
+          <% } else { %>
+          <td class="negative"><%= quote.regularMarketChange.fmt %></td>
+          <% } %> <% if (quote.regularMarketChangePercent.raw > 0) { %>
+          <td class="positive">+<%= quote.regularMarketChangePercent.fmt %></td>
+          <% } else { %>
+          <td class="negative"><%= quote.regularMarketChangePercent.fmt %></td>
+          <% } %>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

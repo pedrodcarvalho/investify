@@ -1,0 +1,80 @@
+.dashboard {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50vh;
+}
+.finance-applet {
+  color: var(--baseDarkColor);
+  background-color: var(--baseColor);
+  border-radius: 8px;
+  border: 1px solid var(--baseDarkColorLightest);
+  width: 20rem;
+  height: 15.5rem;
+  max-height: 100%;
+  max-width: 100%;
+}
+.finance-applet table {
+  width: 100%;
+  max-width: 100%;
+}
+.dashboard .finance-applet {
+  margin: 0 10px 20px 10px;
+}
+
+.dashboard .finance-applet tr:last-child {
+  margin-bottom: 0;
+}
+.dashboard .finance-applet tr th:first-child {
+  padding-left: 5px;
+}
+.dashboard .finance-applet tr td {
+  border-bottom: 1px solid var(--baseDarkColorLightest);
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
+.dashboard .finance-applet tr:last-child td {
+  border: none;
+}
+.dashboard .finance-applet tr td,
+.dashboard .finance-applet tr th {
+  text-align: left;
+}
+.finance-applet th {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.finance-applet a {
+  color: var(--baseDarkColor);
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+.finance-applet a:hover {
+  color: var(--baseDarkColorLightest);
+}
+
+.finance-container {
+  align-items: start;
+}
+.finance-container h1 {
+  font-size: 1.25rem;
+  margin: 0 0 5px 15px;
+  text-decoration: 2px underline var(--accentColor);
+}
+
+.finance-applet td span {
+  position: absolute;
+  margin-top: 20px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--baseDarkColorLighter);
+}
+
+.positive {
+  color: var(--accentColor);
+}
+.negative {
+  color: var(--accentColorInverse);
+}

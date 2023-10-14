@@ -107,3 +107,7 @@ body {
 div.div-spacing {
   margin: 1rem 0 0 0;
 }
+
+.fa-spinner {
+  color: var(--accentColor);
+}

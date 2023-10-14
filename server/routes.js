@@ -7,6 +7,7 @@ const pageController = require('./controllers/pageController');
 const componentsController = require('./controllers/componentsController');
 const userController = require('./controllers/userController');
 const userSettingsController = require('./controllers/userSettingsController');
+const dashboardController = require('./controllers/dashboardController');
 const quoteController = require('./controllers/quoteController');
 const operationController = require('./controllers/operationController');
 const walletController = require('./controllers/walletController')
@@ -31,6 +32,8 @@ router.post('/register', userController.registerUser);
 
 router.get('/theme', userSettingsController.getUserTheme);
 router.put('/theme', userSettingsController.updateUserTheme);
+
+router.get('/dashboard/applets', dashboardController.getFinanceApplets);
 
 router.get('/quote/:ticker', quoteController.getQuoteCards);
 router.get('/quoted', quoteController.quotedTicker);
