@@ -115,7 +115,7 @@ const sortTable = (columnIndex, sortValue) => {
     tableBody.append(...sortedRows);
 };
 
-const rowsPerPage = (endValue) => {
+const rowsPerPage = async (endValue) => {
     updateTable(assetsArray, startValue, endValue);
 
     updatePaginationTotal(startValue, endValue);
@@ -130,7 +130,7 @@ const loadAssetsInfo = () => {
     });
 };
 
-const updatePaginationButtonsState = () => {
+const updatePaginationButtonsState = async () => {
     if (assetsArray.length === 0) {
         paginationButtons[0].setAttribute('disabled', '');
         paginationButtons[1].setAttribute('disabled', '');
@@ -169,15 +169,15 @@ const mountWallet = async () => {
         rowsPerPage(Number(event.detail.value));
     });
 
-    rowsPerPage(5);
+    await rowsPerPage(5);
 
     dataTable.listen('MDCDataTable:sorted', (event) => {
         sortTable(event.detail.columnIndex, event.detail.sortValue);
     });
 
-    setPaginationTotal();
+    await setPaginationTotal();
 
-    updatePaginationButtonsState();
+    await updatePaginationButtonsState();
 
     paginationButtons[0].addEventListener('click', () => {
         startValue = 0;
