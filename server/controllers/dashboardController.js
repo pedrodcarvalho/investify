@@ -1,4 +1,5 @@
 const axios = require('axios');
+const puppeteer = require('puppeteer');
 
 const getFinanceApplets = async (req, res) => {
     try {
@@ -25,6 +26,36 @@ const getFinanceApplets = async (req, res) => {
     }
 };
 
+const getLiveNews = async (req, res) => {
+    try {
+        const browser = await puppeteer.launch(headless = 'new');
+        const page = await browser.newPage();
+
+        await page.goto('https://www.youtube.com/results?search_query=finance&sp=EgJAAQ%253D%253D');
+
+        await page.waitForSelector('ytd-video-renderer #video-title');
+
+        const liveVideosJSON = await page.evaluate(() => {
+            const liveVideosArray = document.querySelectorAll('ytd-video-renderer #video-title');
+
+            return Array.from(liveVideosArray).map((liveVideo) => {
+                return {
+                    title: liveVideo.title,
+                    id: liveVideo.href?.split('=')[1].split('&')[0],
+                };
+            });
+        });
+
+        await browser.close();
+
+        res.status(200).json(liveVideosJSON);
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     getFinanceApplets,
+    getLiveNews,
 };

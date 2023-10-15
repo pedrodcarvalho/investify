@@ -34,6 +34,7 @@ router.get('/theme', userSettingsController.getUserTheme);
 router.put('/theme', userSettingsController.updateUserTheme);
 
 router.get('/dashboard/applets', dashboardController.getFinanceApplets);
+router.get('/dashboard/live-news', dashboardController.getLiveNews);
 
 router.get('/quote/:ticker', quoteController.getQuoteCards);
 router.get('/quoted', quoteController.quotedTicker);

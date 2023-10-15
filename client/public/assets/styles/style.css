@@ -111,3 +111,7 @@ div.div-spacing {
 .fa-spinner {
   color: var(--accentColor);
 }
+
+.margin-bottom {
+  margin-bottom: 5rem;
+}

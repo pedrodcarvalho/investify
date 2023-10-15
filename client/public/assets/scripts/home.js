@@ -10,6 +10,7 @@ const loadFinanceApplets = async () => {
     }));
 
     const dashboard = document.querySelector('.dashboard');
+
     financeApplets.map((applet, i) => {
         if (i === 0) {
             dashboard.innerHTML = '';
@@ -22,4 +23,17 @@ const loadFinanceApplets = async () => {
     });
 };
 
+const loadLiveNews = async () => {
+    await fetch('/dashboard/live-news').then((response) => response.json()).then((data) => {
+        const iFrame = document.querySelector('#live-news');
+        iFrame.src = `https://www.youtube-nocookie.com/embed/${data[1].id}?autoplay=1&mute=1&disablekb=1&loop=1&rel=0`;
+
+        iFrame.addEventListener('load', () => {
+            const iFrameSpinner = document.querySelector('.iframe-spinner');
+            iFrameSpinner.style.display = 'none';
+        });
+    });
+};
+
 loadFinanceApplets();
+loadLiveNews();
