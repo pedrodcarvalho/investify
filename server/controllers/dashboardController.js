@@ -31,7 +31,7 @@ const getLiveNews = async (req, res) => {
         const browser = await puppeteer.launch(headless = 'new');
         const page = await browser.newPage();
 
-        await page.goto('https://www.youtube.com/results?search_query=finance&sp=EgJAAQ%253D%253D');
+        await page.goto('https://www.youtube.com/results?search_query=yahoo+news+bloomberg+news&sp=EgJAAQ%253D%253D');
 
         await page.waitForSelector('ytd-video-renderer #video-title');
 

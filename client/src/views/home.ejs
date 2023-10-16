@@ -21,7 +21,15 @@
         <div class="flex column div-spacing">
           <div class="video-container margin-bottom">
             <h1>Live News</h1>
-            <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl iframe-spinner"></i>
+            <div class="controls flex space-between">
+              <button class="previous-video">
+                <i class="fa-solid fa-chevron-left fa-xs"></i>
+              </button>
+              <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl iframe-spinner"></i>
+              <button class="next-video">
+                <i class="fa-solid fa-chevron-right fa-xs"></i>
+              </button>
+            </div>
             <iframe id="live-news" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="dashboard flex row">

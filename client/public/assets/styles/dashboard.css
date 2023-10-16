@@ -1,7 +1,7 @@
 .dashboard {
   width: 100%;
   flex-wrap: wrap;
-  justify-content: center !important;
+  justify-content: space-evenly !important;
   margin-top: 25vh;
   margin-left: 0 !important;
 }
@@ -96,8 +96,25 @@
   border-style: dashed;
 }
 
-.iframe-spinner {
+.controls {
+  width: 38rem;
+  max-width: 100%;
   position: absolute;
-  margin-left: 19rem;
-  margin-top: 10rem;
+  top: 11.75rem;
+  margin-left: 1rem;
+}
+
+.next-video,
+.previous-video {
+  color: var(--accentColor);
+  border: 1px solid var(--baseDarkColorLightest);
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 1.5rem;
+}
+.next-video:hover,
+.previous-video:hover {
+  color: var(--accentColorLight);
+  border: 1px solid var(--accentColorLight);
+  cursor: pointer;
 }
