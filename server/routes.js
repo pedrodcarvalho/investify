@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const database = require('./config/database');
 const loginVerification = require('./middleware/loginVerification');
 const pageController = require('./controllers/pageController');
 const componentsController = require('./controllers/componentsController');
@@ -12,7 +11,6 @@ const quoteController = require('./controllers/quoteController');
 const operationController = require('./controllers/operationController');
 const walletController = require('./controllers/walletController')
 
-router.use(database.connect);
 router.use(loginVerification.verifyLogin);
 
 router.get('/', pageController.getLoginPage);

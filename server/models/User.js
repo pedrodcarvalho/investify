@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
             shares: Number,
         }],
     },
+    balance_history: [{
+        balance: Number,
+        date: Date,
+    }],
 });
 
 module.exports = mongoose.model('User', userSchema);

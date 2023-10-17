@@ -6,6 +6,12 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 const HOSTNAME = process.env.HOSTNAME || 'localhost';
 
+const { connectToDatabase } = require('./config/database');
+connectToDatabase();
+
+const { storeUserBalance } = require('./utils/scheduler');
+storeUserBalance();
+
 app.use(express.static('../client/public', { index: false }));
 app.use(express.static('../client/src', { index: false }));
 

@@ -29,6 +29,8 @@ const loadVideo = (videoId, iFrame) => {
 
 const loadLiveNews = async () => {
     await fetch('/dashboard/live-news').then((response) => response.json()).then((data) => {
+        data = data.slice(0, 3);
+
         let videoIndex = 0;
 
         const iFrame = document.querySelector('#live-news');
@@ -53,4 +55,4 @@ const loadLiveNews = async () => {
 };
 
 loadFinanceApplets();
-loadLiveNews();
+// loadLiveNews();

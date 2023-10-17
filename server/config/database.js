@@ -1,6 +1,6 @@
-exports.connect = (req, res, next) => {
-    const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
+const connectToDatabase = () => {
     const uri = `${process.env.MONGODB_URI}`;
 
     const options = {
@@ -14,6 +14,8 @@ exports.connect = (req, res, next) => {
     };
 
     mongoose.connect(uri, options);
+};
 
-    next();
+module.exports = {
+    connectToDatabase,
 };
