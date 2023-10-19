@@ -4,18 +4,21 @@
 .sell-button {
   background-color: var(--accentColorInverse) !important;
 }
-
+.operation-container {
+  margin-top: 2px;
+}
 .add-share,
 .remove-share {
   border: 1px solid var(--baseDarkColorLighter);
+  width: 24px;
   padding: 4px 8px 4px 8px;
   font-weight: 700;
 }
 .add-share {
-  border-radius: 4px 0 0 4px;
+  border-radius: 0 4px 4px 0;
 }
 .remove-share {
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px 0 0 4px;
 }
 .add-share:hover,
 .remove-share:hover {
