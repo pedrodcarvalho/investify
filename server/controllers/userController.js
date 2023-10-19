@@ -32,6 +32,11 @@ const registerUser = async (req, res) => {
                 username: req.body.username,
                 email: req.body.email,
                 password: req.body.password,
+                wallet: {
+                    shares: [],
+                    balance: 10000,
+                },
+                balance_history: [],
             });
 
             await newUser.save();
