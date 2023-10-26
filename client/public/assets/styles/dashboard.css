@@ -1,9 +1,14 @@
-.dashboard {
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+div.dashboard {
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-evenly !important;
-  margin-top: 25vh;
+  margin-top: 10vh;
   margin-left: 0 !important;
+}
+
+div.margin-wrapper {
+  margin: 1rem;
 }
 
 .finance-applet {
@@ -63,7 +68,8 @@
   align-items: start;
 }
 .finance-container h1,
-.video-container h1 {
+.video-container h1,
+.balance-history-container h1 {
   font-size: 1.25rem;
   margin-bottom: 0;
   margin-left: 5px;
@@ -85,7 +91,8 @@
   color: var(--accentColorInverse);
 }
 
-.video-container iframe {
+.video-container iframe,
+canvas.balance-history {
   width: 40rem;
   height: 20rem;
   max-width: 100%;
@@ -97,10 +104,10 @@
 }
 
 .controls {
-  width: 38rem;
-  max-width: 100%;
+  display: none;
+  justify-content: space-between;
   position: absolute;
-  top: 11.75rem;
+  margin-top: 9.25rem;
   margin-left: 1rem;
 }
 
@@ -117,4 +124,63 @@
   color: var(--accentColorLight);
   border: 1px solid var(--accentColorLight);
   cursor: pointer;
+}
+
+.container-wrap {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: 0;
+}
+
+canvas.balance-history {
+  width: 40rem;
+  height: 20rem;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.wallet-summary-container {
+  width: 100%;
+}
+
+.wallet-summary-container h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+.balance-digits::selection,
+.dolar-sign::selection {
+  background-color: var(--accentColorLight);
+  color: var(--baseColor);
+}
+
+.balance-digits {
+  font-family: "Share Tech Mono", monospace;
+  color: var(--accentColorLight);
+  text-decoration: 2px underline var(--accentColor);
+}
+
+.wallet-summary-container h1 {
+  font-size: 3rem;
+}
+.wallet-summary-container h1 .balance-digits {
+  letter-spacing: -0.3rem;
+}
+
+.wallet-summary-container h2 {
+  font-size: 2rem;
+}
+.wallet-summary-container h2 .balance-digits {
+  letter-spacing: -0.2rem;
+}
+
+.wallet-summary-container h3 {
+  font-size: 1.5rem;
+}
+.wallet-summary-container h3 .balance-digits {
+  letter-spacing: -0.15rem;
+}
+
+.dolar-sign {
+  color: var(--accentColorLighter);
 }
