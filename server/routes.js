@@ -33,6 +33,8 @@ router.put('/theme', userSettingsController.updateUserTheme);
 
 router.get('/dashboard/applets', dashboardController.getFinanceApplets);
 router.get('/dashboard/live-news', dashboardController.getLiveNews);
+router.get('/dashboard/balance-history', dashboardController.getBalanceHistory);
+router.get('/dashboard/wallet-summary', dashboardController.getWalletSummary);
 
 router.get('/quote/:ticker', quoteController.getQuoteCards);
 router.get('/quoted', quoteController.quotedTicker);
