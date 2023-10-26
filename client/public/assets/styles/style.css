@@ -16,6 +16,14 @@
   --accentColorLightest: #d4f0c3;
   --accentColorInverse: #cc3e33;
   --accentColorInverseLight: #e66a5a;
+
+  --bodyBackgroundColor: var(--baseDarkColor);
+  --bodyColor: var(--baseColor);
+  --bodyFontFamily: "Open Sans";
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: 0.875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
 }
 
 ::-webkit-scrollbar {
@@ -55,12 +63,15 @@
 }
 
 body {
-  font-family: "Open-Sans", sans-serif;
+  font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+  font-size: var(--bodyFontSize);
+  font-weight: var(--bodyFontWeight);
+  line-height: var(--bodyLineHeight);
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  background-color: var(--baseDarkColor) !important;
-  color: var(--baseColor) !important;
+  background-color: var(--bodyBackgroundColor) !important;
+  color: var(--bodyColor) !important;
 }
 
 .flex {
