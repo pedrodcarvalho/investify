@@ -126,7 +126,35 @@ const loadWalletSummary = async () => {
     });
 };
 
+const loadNewsNotification = async () => {
+    await fetch('/notification-news').then((response) => response.json()).then((data) => {
+        const card = document.querySelector('.card');
+
+        card.innerHTML = `
+        <img src="${data[0].thumbnail}">
+        <div class="column">
+            <p class="card-category">${data[0].category}</p>
+            <h2 class="card-title">${data[0].title}</h2>
+            <p class="card-description">${data[0].description}</p>
+            <a href="${data[0].url}" class="card-link">Read more</a>
+        </div>
+        <i class="fa-solid fa-xmark close-notification"></i>
+        `;
+
+        card.style.display = 'flex';
+    });
+
+    document.querySelector('.card img').addEventListener('click', () => {
+        window.open(document.querySelector('.card-link').href, '_blank');
+    });
+
+    document.querySelector('.close-notification').addEventListener('click', () => {
+        document.querySelector('.card').style.display = 'none';
+    });
+};
+
 loadWalletSummary();
 loadFinanceApplets();
 loadBalanceHistory();
 // loadLiveNews();
+loadNewsNotification();

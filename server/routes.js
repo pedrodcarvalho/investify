@@ -9,7 +9,8 @@ const userSettingsController = require('./controllers/userSettingsController');
 const dashboardController = require('./controllers/dashboardController');
 const quoteController = require('./controllers/quoteController');
 const operationController = require('./controllers/operationController');
-const walletController = require('./controllers/walletController')
+const walletController = require('./controllers/walletController');
+const newsNotificationController = require('./controllers/newsNotificationController');
 
 router.use(loginVerification.verifyLogin);
 
@@ -46,5 +47,7 @@ router.get('/operation/sell', operationController.sellOperation);
 
 router.get('/wallet/assets', walletController.getAssets)
 router.get('/wallet/assets/quantity', walletController.getNumberOfAssets)
+
+router.get('/notification-news', newsNotificationController.getNewsNotification);
 
 module.exports = router;
