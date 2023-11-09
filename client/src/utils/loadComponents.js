@@ -91,4 +91,4 @@ const loadToastMessage = async () => {
         });
 };
 
-export { loadLoginForm, loadRegisterForm, loadFooter, loadSidebar, loadToastMessage };
+export { loadLoginForm, loadRegisterForm, loadFooter, loadSidebar, loadToastMessage, passwordEye };

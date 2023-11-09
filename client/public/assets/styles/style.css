@@ -126,3 +126,9 @@ div.div-spacing {
 .margin-bottom {
   margin-bottom: 5rem;
 }
+
+.small-text {
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: 2px underline var(--accentColor);
+}
