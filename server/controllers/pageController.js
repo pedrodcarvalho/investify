@@ -27,7 +27,7 @@ const getHomePage = async (req, res) => {
 
 const getSettingsPage = async (req, res) => {
     try {
-        res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email });
+        res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email, password: req.session.user.password, toast: req.session?.toast });
     }
     catch (err) {
         res.status(500).json({ err: err.message });

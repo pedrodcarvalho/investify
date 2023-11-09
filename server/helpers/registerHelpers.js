@@ -77,4 +77,4 @@ const validateInput = async (body) => {
     }
 };
 
-module.exports = { sanitizeInput, validateInput };
+module.exports = { sanitizeInput, validateInput, validatePassword };

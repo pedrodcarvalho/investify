@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const { sanitizeInput, validateInput } = require('../helpers/registerHelpers');
+const { sanitizeInput, validateInput, validatePassword } = require('../helpers/registerHelpers');
 
 const loginUser = async (req, res) => {
     try {
@@ -67,8 +67,42 @@ const logOutUser = (req, res) => {
     }
 };
 
+const resetPassword = async (req, res) => {
+    try {
+        req.body = await sanitizeInput(req.body);
+
+        if (req.body.password.length < 8 || req.body.password.length > 16) {
+            req.session.toast = { title: 'Error', message: 'Sorry, your password must be between 8 and 16 characters long.' };
+            return res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email, password: req.session.user.password, toast: req.session?.toast });
+        }
+
+        const isValidPassword = validatePassword(req.body);
+
+        if (isValidPassword) {
+            req.session.toast = { title: 'Error', message: isValidPassword.message };
+            res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email, password: req.session.user.password, toast: req.session?.toast });
+
+            req.session.toast = null;
+        }
+        else {
+            await User.findOneAndUpdate({ username: req.session.user.username }, { password: req.body.password });
+
+            req.session.user.password = req.body.password;
+
+            req.session.toast = { title: 'Success', message: 'Password changed successfully' };
+            res.status(200).render('settings', { username: req.session.user.username, email: req.session.user.email, password: req.session.user.password, toast: req.session?.toast });
+
+            req.session.toast = null;
+        }
+    }
+    catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     loginUser,
     registerUser,
     logOutUser,
+    resetPassword,
 };

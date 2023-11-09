@@ -27,6 +27,7 @@ router.get('/toast-message', componentsController.getToastMessage);
 router.get('/logout', userController.logOutUser);
 router.post('/login', userController.loginUser);
 router.post('/register', userController.registerUser);
+router.post('/reset-password', userController.resetPassword);
 
 router.get('/theme', userSettingsController.getUserTheme);
 router.put('/theme', userSettingsController.updateUserTheme);
