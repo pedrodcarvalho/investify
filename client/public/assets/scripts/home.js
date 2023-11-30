@@ -156,5 +156,5 @@ const loadNewsNotification = async () => {
 loadWalletSummary();
 loadFinanceApplets();
 loadBalanceHistory();
-// loadLiveNews();
+loadLiveNews();
 loadNewsNotification();

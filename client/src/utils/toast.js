@@ -8,6 +8,8 @@ const toastMessage = () => {
     let timer1, timer2;
 
     if (toastText) {
+        toast.style.display = 'flex';
+
         setTimeout(() => {
             toast.classList.add('active');
             progress.classList.add('active');
@@ -23,6 +25,8 @@ const toastMessage = () => {
     }
 
     closeIcon.addEventListener('click', () => {
+        toast.style.display = 'none';
+
         toast.classList.remove('active');
 
         setTimeout(() => {
