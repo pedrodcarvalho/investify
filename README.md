@@ -151,8 +151,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 <br>
 <br>
 
-<img src="./assets/home.png" alt="Notifications and Alerts" width="750px" height="480px" style="margin-right: 5px;">
-<img src="./assets/home-phone.png" alt="Notifications and Alerts" width="245px">
+<img src="./assets/home.png" alt="Notifications and Alerts" width="1000px">
 
 **Investment Analysis**: Users can view portfolio performance and historical data.
 
